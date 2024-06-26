@@ -1,0 +1,46 @@
+-- Borrar la Base de Datos si Existe
+DROP DATABASE IF EXISTS banco;
+
+-- Crear la Base de Datos
+CREATE DATABASE banco;
+
+-- Conectarse a la Base de Datos
+\c banco
+
+--Crear una tabla transferencias (SE MODIFICA EL TIPO DE DATOS PARA FECHA YA QUE CAUSA AMBIGÜEDADES EN LA ENTREGA DE INFORMACIÓN)
+CREATE TABLE transferencias (descripcion varchar(50), fecha TIMESTAMP, monto DECIMAL, cuenta_origen INT, cuenta_destino INT);
+
+--Crear una tabla cuentas
+CREATE TABLE cuentas (id INT, saldo DECIMAL CHECK (saldo >= 0) );
+
+--Insertar datos 
+INSERT INTO cuentas VALUES (1, 30000);
+INSERT INTO cuentas VALUES (2, 20000);
+INSERT INTO cuentas VALUES (3, 15000);
+INSERT INTO cuentas VALUES (4, 30000);
+INSERT INTO cuentas VALUES (5, 25000);
+
+--Insertar datos
+INSERT INTO transferencias VALUES ('Asunto por resolver', '2024-06-26', 150.50, 1, 2);
+INSERT INTO transferencias VALUES ('Pago de factura', '2024-06-12', 150.50, 1, 2);
+INSERT INTO transferencias VALUES ('Compra en línea', '2024-06-15', 75.25, 2, 3);
+INSERT INTO transferencias VALUES ('Transferencia mensual', '2024-06-18', 200.00, 3, 4);
+INSERT INTO transferencias VALUES ('Devolución de préstamo', '2024-06-20', 50.00, 4, 1);
+INSERT INTO transferencias VALUES ('Compra supermercado', '2024-06-22', 120.75, 5, 2);
+INSERT INTO transferencias VALUES ('Pago de servicios', '2024-06-25', 90.00, 1, 5);
+INSERT INTO transferencias VALUES ('Envío de regalo', '2024-06-22', 30.50, 3, 1);
+INSERT INTO transferencias VALUES ('Pago de préstamo', '2024-03-01', 300.00, 2, 4);
+INSERT INTO transferencias VALUES ('Transferencia ahorros', '2024-01-05', 500.00, 4, 5);
+INSERT INTO transferencias VALUES ('Reembolso impuestos', '2024-01-08', 150.25, 5, 3);
+INSERT INTO transferencias VALUES ('Pago alquiler', '2024-04-10', 400.00, 1, 3);
+INSERT INTO transferencias VALUES ('Compra electrodoméstico', '2024-03-12', 250.75, 2, 5);
+INSERT INTO transferencias VALUES ('Donación caridad', '2024-01-14', 100.00, 3, 2);
+INSERT INTO transferencias VALUES ('Pago de seguro', '2024-02-16', 80.50, 4, 1);
+INSERT INTO transferencias VALUES ('Suscripción gimnasio', '2024-03-18', 60.00, 5, 4);
+INSERT INTO transferencias VALUES ('Reserva hotel', '2024-06-20', 350.00, 1, 5);
+INSERT INTO transferencias VALUES ('Pago de matrícula', '2024-05-22', 500.00, 2, 3);
+INSERT INTO transferencias VALUES ('Compra de ropa', '2024-05-24', 75.00, 3, 1);
+INSERT INTO transferencias VALUES ('Transferencia familiar', '2024-01-26', 200.00, 4, 2);
+INSERT INTO transferencias VALUES ('Pago de crédito', '2024-04-28', 150.00, 5, 1);
+INSERT INTO transferencias VALUES ('Reembolso viaje', '2024-03-30', 120.50, 1, 4);
+INSERT INTO transferencias VALUES ('Cita medica', '2024-04-30', 150, 1, 4);

@@ -1,0 +1,13 @@
+#toastContainer {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1050;
+  }
+  
+  .toast {
+    min-width: 300px;
+    color: black;
+    background-color: rgba(76, 112, 241, 0.794);
+  }

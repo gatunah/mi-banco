@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transferencia Bancaria</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="">
+    <div class="container d-flex justify-content-center align-items-center mt-5">
+        <div class="row justify-content-center align-items-center">
+            <div class="card col-5 mb-3">
+                <div class="card-header">
+                    <h2 class="text-center">Transferencia Bancaria</h2>
+                </div>
+                <div class="card-body">
+                    <form id="formTransf">
+                        <div class="form-group">
+                            <label for="emisor"><b>Emisor:</b></label>
+                            <select id="emisorTransfOption" class="form-control w-100"></select>
+                        </div>
+                        <div class="form-group ">
+                            <label for="receptor"><b>Receptor:</b></label>
+                            <select id="receptorTransfOption" class="form-control w-100"></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="monto"><b>Monto:</b></label>
+                            <input type="number" class="form-control" id="montoInput" name="monto" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion"><b>Asunto:</b></label>
+                            <input type="text" class="form-control" id="descripcionInput" name="descripcion" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Transferir</button>
+                    </form>
+                </div>
+                <div id="toastContainer"></div>
+            </div>
+            <div class="card col-12">
+                <div class="card-header">
+                    <h2 class="text-center">1.-Última Transferencia</h2>
+                </div>
+                <div class="card-body">
+                    <table class="table bg-light">
+                        <thead class="bg-danger text-white">
+                            <th>Fecha</th>
+                            <th>Descripción</th>
+                            <th>Emisor</th>
+                            <th>Receptor</th>
+                            <th>Monto</th>
+                        </thead>
+                        <tbody id="ultimaTransferencia">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card col-12">
+                <div class="card-header">
+                    <h2 class="text-center">2.-Transferencias según cuenta</h2>
+                </div>
+                <div class="justify-content-center align-items-center text-center">
+                    <form id="formtransfEmisor">
+                        <label>N° cuenta:</label>
+                        <select id="emisorOption" class="form-control mx-2 w-auto d-inline"></select>
+                    </form>
+                </div>
+                <div class="card-body">
+                    <table class="table bg-light">
+                        <thead class="bg-danger text-white">
+                            <th>Fecha</th>
+                            <th>Descripción</th>
+                            <th>Emisor</th>
+                            <th>Receptor</th>
+                            <th>Monto</th>
+                        </thead>
+                        <tbody id="transferenciaFiltro">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card col-12 ">
+                <div class="card-header ">
+                    <h2 class="text-center">3.-Saldo según cuenta</h2>
+                </div>
+                <div class="justify-content-center align-items-center text-center">
+                    <form id="formtransfEmisor">
+                        <label>N° cuenta:</label>
+                        <select id="cuentaOption" class="form-control mx-2 w-auto d-inline"></select>
+                    </form>
+                </div>
+                <div class="card-body">
+                    <table class="table bg-light">
+                        <thead class="bg-danger text-white text-center">
+                            <th>Saldo Total:</th>
+                        </thead>
+                        <tbody class="text-center" id="saldoFiltro">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
